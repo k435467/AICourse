@@ -1,0 +1,97 @@
+html {
+  visibility: hidden;
+}
+
+.container {
+  width: 600px;
+  min-height: 200px;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.board {
+  display: inline-block;
+  border-radius: 2%;
+  border: 6px solid #795548;
+}
+
+.board-grid {
+  display: inline-block;
+  line-height: normal;
+  transition-duration: 0.3s;
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+/* piece */
+
+.piece {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  /* transition-duration: 0.3s; */
+}
+
+.p-empty {
+  opacity: 0;
+}
+
+.p-empty-choice {
+  background-color: rgba(180, 180, 180, 0);
+  border: 3px solid yellow;
+  cursor: pointer;
+}
+
+.p-black {
+  background-color: #424242;
+}
+
+.p-black-choice {
+  background-color: #424242;
+  border: 3px solid yellow;
+  cursor: pointer;
+}
+
+.p-red {
+  background-color: #d32f2f;
+}
+
+.p-red-choice {
+  background-color: #d32f2f;
+  border: 3px solid yellow;
+  cursor: pointer;
+}
+
+.p-king {
+  background-image: url("img/crown.png");
+  background-size: cover;
+}
+
+/* slide fade */
+
+.slide-fade-enter-active {
+  transition: all 0.8s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.1s ease;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-40px);
+  opacity: 0;
+}
+
+/* fade */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

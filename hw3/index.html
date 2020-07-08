@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>English draughts</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <transition name="fade">
+        <v-app v-if="showContent">
+          <v-main>
+            <v-container class="container">
+              <h1>English draughts</h1>
+              <br /><br />
+
+              <span class="board">
+                <div v-for="row in pieces">
+                  <span v-for="piece in row">
+                    <span
+                      :style="{background: piece.img}"
+                      class="pa-1 board-grid"
+                    >
+                      <span
+                        :class="piece.class"
+                        @click="clickPiece(piece.row,piece.col)"
+                      ></span>
+                    </span>
+                  </span>
+                </div>
+              </span>
+
+              <v-row justify="center">
+                <v-dialog v-model="gameResult.show" persistent max-width="290">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="primary"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                      style="display: none;"
+                      id="gameResultActivator"
+                    >
+                      Open Dialog
+                    </v-btn>
+                  </template>
+                  <v-card>
+                    <v-card-title class="headline"
+                      >{{gameResult.title}}</v-card-title
+                    >
+                    <v-card-text>{{gameResult.text}}</v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="green darken-1"
+                        text
+                        @click="gameResult.show = false"
+                        >OK</v-btn
+                      >
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-row>
+            </v-container>
+          </v-main>
+        </v-app>
+      </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)"></script>
+    <script src="js/alphabeta.js"></script>
+    <script src="js/boardClass.js"></script>
+    <script src="js/evaluate.js"></script>
+    <script src="js/gameClass.js"></script>
+    <script src="js/moveClass.js"></script>
+    <script src="js/pieceData.js"></script>
+    <script src="js/pointClass.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
