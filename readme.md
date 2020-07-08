@@ -2,4 +2,4 @@ idastar, random restart hill climbing, alphabeta pruning, checker, English draug
 
 - Screenshot of Checker
 
-  ![Screenshot of Checker](/hw3/img/checker-screenshot.png | width=200)
+  <img width="200" alt="screenshot of checker" src="/hw3/img/checker-screenshot.png">
